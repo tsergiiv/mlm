@@ -652,4 +652,4 @@
     </section>
     <!-- REVIEWS SECTION END -->
 
-<?= get_footer(); ?>
+<?= get_footer(); ?>s

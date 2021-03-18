@@ -76,3 +76,10 @@
 </main>
 
 <div id="lottie"></div>
+
+<script type="text/javascript">
+    let templateUrl = '<?= get_bloginfo("template_url"); ?>';
+
+    let url = '<?= get_bloginfo("url"); ?>';
+</script>
+

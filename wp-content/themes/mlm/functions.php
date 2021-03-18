@@ -22,6 +22,9 @@ function enqueue_styles()
     } else if (is_page('About')) {
         wp_register_style('about-page', get_template_directory_uri() . '/assets/css/about.css', array(), date("h:i:s"));
         wp_enqueue_style('about-page');
+    } else if (is_page('Contact Us')) {
+        wp_register_style('contacts', get_template_directory_uri() . '/assets/css/contacts.css', array(), date("h:i:s"));
+        wp_enqueue_style('contacts');
     }
 }
 
