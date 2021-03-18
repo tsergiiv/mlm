@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'Bebas Neue';
     font-weight: 400;
-    src: url("fonts/BebasNeueRegular.otf") format("opentype");
+    src: url("./assets/fonts/BebasNeueRegular.otf") format("opentype");
 }
 @font-face {
     font-family: 'Bebas Neue';
     font-weight: 700;
-    src: url("fonts/BebasNeueBold.otf") format("opentype");
+    src: url("./assets/fonts/BebasNeueBold.otf") format("opentype");
 }
 body {
     font-family: 'Open Sans', sans-serif;
@@ -221,7 +221,7 @@ header ul li + li {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.1);
-    background: url(../img/section-1-bg.jpg) 0 -104px / 100% no-repeat;
+    background: url(./assets/img/section-1-bg.jpg) 0 -104px / 100% no-repeat;
     transition: .7s cubic-bezier(0, 0.9, 1, 1);
     z-index: -1;
 }
@@ -449,7 +449,7 @@ header ul li + li {
 }
 .hostels-section::before {
     content: '';
-    background: url(../img/hostels-bg.png) center / cover no-repeat;
+    background: url(./assets/img/hostels-bg.png) center / cover no-repeat;
     position: absolute;
     left: 0;
     top: -287px;
@@ -489,7 +489,7 @@ header ul li + li {
 }
 /* SCREEN FOUR */
 .invest-section {
-    background: url(../img/invest-bg.jpg) center / cover no-repeat;
+    background: url(./assets/img/invest-bg.jpg) center / cover no-repeat;
 }
 .invest-section .section-title {
     border-bottom-color: rgba(255, 255, 255, 0.1);
@@ -619,7 +619,7 @@ header ul li + li {
 }
 .leader-section::before {
     content: '';
-    background: url(../img/leader-bg.png) center / cover no-repeat;
+    background: url(./assets/img/leader-bg.png) center / cover no-repeat;
     position: absolute;
     left: 0;
     top: 129px;
@@ -834,7 +834,7 @@ header ul li + li {
 }
 .packages-section::before {
     content: '';
-    background: url(../img/packages-bg.png) center / cover no-repeat;
+    background: url(./assets/img/packages-bg.png) center / cover no-repeat;
     position: absolute;
     left: 0;
     top: 66px;
@@ -933,7 +933,7 @@ header ul li + li {
 }
 .reviews-section > .container::before {
     content: '';
-    background: url(../img/packages-bg.png) center / cover no-repeat;
+    background: url(./assets/img/packages-bg.png) center / cover no-repeat;
     position: absolute;
     left: 0;
     top: 187px;
@@ -986,7 +986,7 @@ header ul li + li {
 }
 /* LAST SCREEN */
 .last-section__wrapper {
-    background: url(../img/last-bg.jpg) center / cover no-repeat;
+    background: url(./assets/img/last-bg.jpg) center / cover no-repeat;
 }
 .last-section__wrapper .container {
     flex-direction: column;
@@ -2232,7 +2232,7 @@ footer .right-col {
     }
     .top-section__wrapper::before {
         left: 58%;
-        background: url(../img/section-1-bg.jpg) 0 -104px / 90% no-repeat;
+        background: url(./assets/img/section-1-bg.jpg) 0 -104px / 90% no-repeat;
     }
     .top-bg {
         max-width: 650px;
@@ -2384,7 +2384,7 @@ footer .right-col {
         top: 9px;
         left: 143px;
         transform: none;
-        background: url(../img/section-1-bg.jpg) 0 -81px / 95% no-repeat;
+        background: url(./assets/img/section-1-bg.jpg) 0 -81px / 95% no-repeat;
         z-index: -1;
     }
     .about-section .section-title {
@@ -2439,7 +2439,7 @@ footer .right-col {
         min-width: 300px;
     }
     .invest-section {
-         background: url(../img/invest-bg-sm.jpg) center / cover no-repeat;
+         background: url(./assets/img/invest-bg-sm.jpg) center / cover no-repeat;
      }
     .invest-section .section-botrow {
         height: 108px;
@@ -2575,15 +2575,15 @@ footer .right-col {
         display: none;
     }
     .leader-section::before {
-        background: url(../img/leader-bg-sm.png) center 230px / cover no-repeat;
+        background: url(./assets/img/leader-bg-sm.png) center 230px / cover no-repeat;
         top: 60px;
     }
     .packages-section::before {
-        background: url(../img/packages-bg-sm.png) center / cover no-repeat;
+        background: url(./assets/img/packages-bg-sm.png) center / cover no-repeat;
         top: 80px;
     }
     .reviews-section > .container::before {
-        background: url(../img/reviews-bg-sm.png) center / cover no-repeat;
+        background: url(./assets/img/reviews-bg-sm.png) center / cover no-repeat;
     }
     .owl-custom-nav .btn-corner {
         display: none;
@@ -2674,7 +2674,7 @@ footer .right-col {
         top: 0;
         left: unset;
         right: -110px;
-        background: url(../img/section-1-bg.jpg) 0 -81px / 100% no-repeat;
+        background: url(./assets/img/section-1-bg.jpg) 0 -81px / 100% no-repeat;
         width: 1225px;
     }
     .top-steps {
@@ -2901,7 +2901,7 @@ footer .right-col {
         padding: 0 0 4px;
     }
     .last-section__wrapper {
-        background: url(../img/last-bg-sm.jpg) center / cover no-repeat;
+        background: url(./assets/img/last-bg-sm.jpg) center / cover no-repeat;
     }
     .last-section__wrapper .section-title {
         margin-bottom: 244px;
@@ -2925,7 +2925,7 @@ footer .right-col {
         padding-left: 37px;
     }
     .leader-section::before {
-        background: url(../img/leader-bg-sm.png) center 0 / cover no-repeat;
+        background: url(./assets/img/leader-bg-sm.png) center 0 / cover no-repeat;
         top: unset;
         bottom: 0;
         height: 735px;
@@ -3050,7 +3050,7 @@ footer .right-col {
     }
     .top-section__wrapper::before {
         top: 0;
-        background: url(../img/section-1-bg.jpg) 0 -50px / 100% no-repeat;
+        background: url(./assets/img/section-1-bg.jpg) 0 -50px / 100% no-repeat;
         right: -74px;
         width: 803px;
     }
@@ -3122,7 +3122,7 @@ footer .right-col {
         height: 111px;
     }
     .invest-section {
-        background: url(../img/invest-bg-sm.jpg) 66% 0 / cover no-repeat;
+        background: url(./assets/img/invest-bg-sm.jpg) 66% 0 / cover no-repeat;
     }
     .invest-section .section-title .btn-blue {
         display: none;
@@ -3258,7 +3258,7 @@ footer .right-col {
         margin-bottom: 25px;
     }
     .packages-section::before {
-        background: url(../img/packages-bg-sm.png) center / cover no-repeat;
+        background: url(./assets/img/packages-bg-sm.png) center / cover no-repeat;
         top: 30%;
         left: 0;
         width: 992px;
@@ -3593,7 +3593,7 @@ footer .right-col {
         margin-left: 23px;
     }
     .invest-section {
-        background: url(../img/invest-bg-sm.jpg) 53% 0 / cover no-repeat;
+        background: url(./assets/img/invest-bg-sm.jpg) 53% 0 / cover no-repeat;
     }
     .leader-section::before {
         top: 51%;

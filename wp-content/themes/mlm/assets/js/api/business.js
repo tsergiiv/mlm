@@ -1,4 +1,4 @@
-function getPackages(url, business_id, lang) {
+function getPackages(url, business_id) {
     $.ajax({
         url: url,
         dataType: 'json',
@@ -8,7 +8,7 @@ function getPackages(url, business_id, lang) {
         },
         success: function( data ){
             console.log(data);
-            processPackages(data, lang);
+            processPackages(data);
         },
         error: function( jqXhr, textStatus, errorThrown ){
             console.log( errorThrown );

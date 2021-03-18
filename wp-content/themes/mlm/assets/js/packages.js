@@ -1,14 +1,14 @@
-function processPackages(json, lang) {
+function processPackages(json) {
     $.each(json, function(i, val) {
-        $('.packages-section__cols').append(generateHTML(i + 1, val, lang));
+        $('.packages-section__cols').append(generateHTML(i + 1, val));
     });
 }
 
-function generateHTML(n, package, lang) {
+function generateHTML(n, package) {
     let result = `
         <div class="packages-section__col">
             <div class="packages-col__number flex">
-                <img alt="Silver" src="/landing-assets/img/package-${ n }.png">
+                <img alt="Silver" src="${ templateUrl }/assets/img/package-${ n }.png">
                     <span>${ n }</span>
             </div>
             <div class="packages-col__info">
@@ -24,7 +24,7 @@ function generateHTML(n, package, lang) {
                     Пасивный доход в год
                 </div>
             </div>
-            <a class="packages-info__plus" href="/${ lang }/package/${ n }"><img alt="" src="/landing-assets/img/plus.svg"></a>
+            <a class="packages-info__plus" href="${ url }/package?package=${ n }"><img alt="" src="${ templateUrl }/assets/img/plus.svg"></a>
         </div>`;
     return result;
 }
