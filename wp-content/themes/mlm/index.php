@@ -589,25 +589,32 @@
             <div class="section-title border-bot-default">
             </div>
             <div class="container">
-                <div class="last-section__title bebas-bold">
-                    Инвесторы — люди, преодолевшие не только себя, но и рынок
-                </div>
-                <div class="last-section__description">
-                    <p>Выбирая для себя путь инвестора, человек руководствуется, как правило, какими-то внутренними
-                        императивами, которые не всегда видны окружающим.</p>
-                    <p>
-                        Это внутреннее свойство, состоящее из сосредоточенности, способности видеть то, что не может
-                        видеть большинство,
-                        силы мотивации, и составляют качественную базу,
-                        на которой строится финансовое и моральное благополучие не только самого инвестора, но и людей
-                        его окружающих,
-                        работающих вместе с ним.
-                    </p>
-                </div>
-                <a href="<?= get_option("site_url"); ?>/#" class="btn-default btn-blue">
-                    <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/profile.svg">
-                    <span>Регистрация</span>
-                </a>
+                <?php
+                $posts = get_posts(array(
+                    'post_type' => 'index_bottom',
+                ));
+
+                foreach ($posts as $post) {
+                    setup_postdata($post);
+
+                    ?>
+
+	                <div class="last-section__title bebas-bold">
+		                <?= the_field('title') ?>
+	                </div>
+	                <div class="last-section__description">
+                        <?= the_field('text') ?>
+	                </div>
+	                <a href="<?= the_field('button_link') ?>" class="btn-default btn-blue">
+		                <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/profile.svg">
+		                <span><?= the_field('button_text') ?></span>
+	                </a>
+
+                    <?php
+                }
+
+                wp_reset_postdata();
+                ?>
             </div>
         </div>
     </section>

@@ -347,6 +347,50 @@ function register_post_types()
         'query_var' => true,
     ]);
 
+    register_post_type('index_bottom', [
+        'label' => null,
+        'labels' => [
+            'name' => 'Index Bottom', // основное название для типа записи
+            'singular_name' => 'Index Bottom', // название для одной записи этого типа
+            'add_new' => 'Add index bottom', // для добавления новой записи
+            'add_new_item' => 'Add index bottom', // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item' => 'Edit index bottom', // для редактирования типа записи
+            'new_item' => 'New index bottom', // текст новой записи
+            'view_item' => 'View index bottom', // для просмотра записи этого типа.
+            'search_items' => 'Search index bottom', // для поиска по этим типам записи
+            'not_found' => 'Not found', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'Not found in trash', // если не было найдено в корзине
+            'parent_item_colon' => '', // для родителей (у древовидных типов)
+            'menu_name' => 'Index Bottom', // название меню
+        ],
+        'capability_type' => 'post',
+        'capabilities' => [
+            'create_posts' => false,
+            'delete_posts' => false,
+            'delete_published_posts' => false,
+            'delete_private_posts' => false,
+        ],
+        'map_meta_cap' => true,
+        'description' => '',
+        'public' => true,
+        'publicly_queryable' => true, // зависит от public
+        'exclude_from_search' => true, // зависит от public
+        'show_ui' => true, // зависит от public
+        'show_in_nav_menus' => true, // зависит от public
+        'show_in_menu' => true, // показывать ли в меню адмнки
+        'show_in_admin_bar' => true, // зависит от show_in_menu
+        'show_in_rest' => null, // добавить в REST API. C WP 4.7
+        'rest_base' => null, // $post_type. C WP 4.7
+        'menu_position' => 4,
+        'menu_icon' => null,
+        'hierarchical' => false,
+        'supports' => ['title', 'thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'taxonomies' => [],
+        'has_archive' => false,
+        'rewrite' => true,
+        'query_var' => true,
+    ]);
+
     register_post_type('why_invest', [
         'label' => null,
         'labels' => [
