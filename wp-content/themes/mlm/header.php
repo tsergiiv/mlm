@@ -64,7 +64,7 @@
 							<img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/profile.svg">
 							Регистрация
 						</a>
-						<a href="<?= get_option("site_url"); ?>/signin" class="btn-default">
+						<a href="<?= get_option("site_url"); ?>" class="btn-default">
 							Войти
 						</a>
 					</div>

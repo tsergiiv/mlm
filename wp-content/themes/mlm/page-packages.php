@@ -28,134 +28,31 @@
         </div>
         <div class="container">
             <div id="hostels-carousel" class="owl-carousel">
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-1.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Комната отдыха
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-2.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 8-ми местный номер
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-3.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 6-ти местный номер
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-4.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 6-ти местный номер
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-1.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Комната отдыха
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-2.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 8-ми местный номер
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-3.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 6-ти местный номер
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-4.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 6-ти местный номер
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-1.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Комната отдыха
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-2.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 8-ми местный номер
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-3.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 6-ти местный номер
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-4.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 6-ти местный номер
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-1.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Комната отдыха
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-2.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 8-ми местный номер
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-3.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 6-ти местный номер
-                    </div>
-                </div>
-                <div class="hostels-carousel__item flex">
-                    <div class="hostels-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/hostels-4.jpg">
-                    </div>
-                    <div class="hostels-item__title bebas-normal">
-                        Общий 6-ти местный номер
-                    </div>
-                </div>
+                <?php
+                $posts = get_posts(array(
+                    'numberposts' => -1,
+                    'post_type'   => 'hotel',
+                ));
+
+                foreach ($posts as $post) {
+                    setup_postdata($post);
+
+                    ?>
+
+		            <div class="hostels-carousel__item flex">
+			            <div class="hostels-item__img">
+				            <img alt="" src="<?= the_field('image') ?>">
+			            </div>
+			            <div class="hostels-item__title bebas-normal">
+                            <?= the_field('caption') ?>
+			            </div>
+		            </div>
+
+                    <?php
+                }
+
+                wp_reset_postdata();
+                ?>
             </div>
         </div>
         <div class="section-botrow border-top-default flex">
@@ -257,216 +154,19 @@
         </div>
         <div class="container">
             <div id="reviews-carousel" class="owl-carousel">
-                <div class="reviews-carousel__item flex">
-                    <div class="reviews-section__left">
-                        <div class="reviews-left__title flex">
-                            <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/quotes.png">
-                            <div class="bebas-normal">
-                                Инвестор
-                            </div>
-                        </div>
-                        <div class="reviews-left__description">
-                            Вложения в коммерческую недвижимость не так популярны, как инвестиции в жилую недвижимость.
-                            Из-за сложности приобретения, управления. Инвестирование в коммерческую недвижимость – это
-                            целый бизнес.
-                            Вложения в жилую недвижимость многими воспринимается как сохранение средств а не
-                            непосредственно
-                            инвестиция.
-                        </div>
-                        <div class="reviews-left__cols flex">
-                            <a target="_blank" href="#" class="reviews-left__col flex">
-                                <img alt="Linkedin" src="<?php bloginfo('template_url'); ?>/assets/img/linkedin.png">
-                                <div class="link-arrow flex w-100">
-                                    <span>Linkedin</span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="20" cy="20" r="20" fill="#fff"/>
-                                        <path
-                                            d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-                                            fill="#353F4B"/>
-                                    </svg>
-                                </div>
-                            </a>
-                            <a target="_blank" href="#" class="reviews-left__col flex">
-                                <img alt="Facebook" src="<?php bloginfo('template_url'); ?>/assets/img/facebook.png">
-                                <div class="link-arrow flex w-100">
-                                    <span>Facebook</span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="20" cy="20" r="20" fill="#fff"/>
-                                        <path
-                                            d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-                                            fill="#353F4B"/>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="reviews-section__right ml-auto">
-                        <div class="reviews-right__img">
-                            <img alt="Иван Ольховский" src="<?php bloginfo('template_url'); ?>/assets/img/investor-slide.png">
-                            <div class="reviews-right__name bebas-bold">Иван Ольховский</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="reviews-carousel__item flex">
-                    <div class="reviews-section__left">
-                        <div class="reviews-left__title flex">
-                            <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/quotes.png">
-                            <div class="bebas-normal">
-                                Investor
-                            </div>
-                        </div>
-                        <div class="reviews-left__description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et
-                            dolore magna aliqua.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et
-                            dolore magna aliqua.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </div>
-                        <div class="reviews-left__cols flex">
-                            <a target="_blank" href="#" class="reviews-left__col flex">
-                                <img alt="Linkedin" src="<?php bloginfo('template_url'); ?>/assets/img/linkedin.png">
-                                <div class="link-arrow flex w-100">
-                                    <span>Linkedin</span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="20" cy="20" r="20" fill="#fff"/>
-                                        <path
-                                            d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-                                            fill="#353F4B"/>
-                                    </svg>
-                                </div>
-                            </a>
-                            <a target="_blank" href="#" class="reviews-left__col flex">
-                                <img alt="Facebook" src="<?php bloginfo('template_url'); ?>/assets/img/facebook.png">
-                                <div class="link-arrow flex w-100">
-                                    <span>Facebook</span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="20" cy="20" r="20" fill="#fff"/>
-                                        <path
-                                            d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-                                            fill="#353F4B"/>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="reviews-section__right ml-auto">
-                        <div class="reviews-right__img">
-                            <img alt="Иван Ольховский" src="<?php bloginfo('template_url'); ?>/assets/img/investor-slide.png">
-                            <div class="reviews-right__name bebas-bold">Иван Ольховский</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="reviews-carousel__item flex">
-                    <div class="reviews-section__left">
-                        <div class="reviews-left__title flex">
-                            <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/quotes.png">
-                            <div class="bebas-normal">
-                                Инвестор
-                            </div>
-                        </div>
-                        <div class="reviews-left__description">
-                            Вложения в коммерческую недвижимость не так популярны, как инвестиции в жилую недвижимость.
-                            Из-за сложности приобретения, управления. Инвестирование в коммерческую недвижимость – это
-                            целый бизнес.
-                            Вложения в жилую недвижимость многими воспринимается как сохранение средств а не
-                            непосредственно
-                            инвестиция.
-                        </div>
-                        <div class="reviews-left__cols flex">
-                            <a target="_blank" href="#" class="reviews-left__col flex">
-                                <img alt="Linkedin" src="<?php bloginfo('template_url'); ?>/assets/img/linkedin.png">
-                                <div class="link-arrow flex w-100">
-                                    <span>Linkedin</span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="20" cy="20" r="20" fill="#fff"/>
-                                        <path
-                                            d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-                                            fill="#353F4B"/>
-                                    </svg>
-                                </div>
-                            </a>
-                            <a target="_blank" href="#" class="reviews-left__col flex">
-                                <img alt="Facebook" src="<?php bloginfo('template_url'); ?>/assets/img/facebook.png">
-                                <div class="link-arrow flex w-100">
-                                    <span>Facebook</span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="20" cy="20" r="20" fill="#fff"/>
-                                        <path
-                                            d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-                                            fill="#353F4B"/>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="reviews-section__right ml-auto">
-                        <div class="reviews-right__img">
-                            <img alt="Иван Ольховский" src="<?php bloginfo('template_url'); ?>/assets/img/investor-slide.png">
-                            <div class="reviews-right__name bebas-bold">Иван Ольховский</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="reviews-carousel__item flex">
-                    <div class="reviews-section__left">
-                        <div class="reviews-left__title flex">
-                            <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/quotes.png">
-                            <div class="bebas-normal">
-                                Investor
-                            </div>
-                        </div>
-                        <div class="reviews-left__description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et
-                            dolore magna aliqua.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et
-                            dolore magna aliqua.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </div>
-                        <div class="reviews-left__cols flex">
-                            <a target="_blank" href="#" class="reviews-left__col flex">
-                                <img alt="Linkedin" src="<?php bloginfo('template_url'); ?>/assets/img/linkedin.png">
-                                <div class="link-arrow flex w-100">
-                                    <span>Linkedin</span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="20" cy="20" r="20" fill="#fff"/>
-                                        <path
-                                            d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-                                            fill="#353F4B"/>
-                                    </svg>
-                                </div>
-                            </a>
-                            <a target="_blank" href="#" class="reviews-left__col flex">
-                                <img alt="Facebook" src="<?php bloginfo('template_url'); ?>/assets/img/facebook.png">
-                                <div class="link-arrow flex w-100">
-                                    <span>Facebook</span>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="20" cy="20" r="20" fill="#fff"/>
-                                        <path
-                                            d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-                                            fill="#353F4B"/>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="reviews-section__right ml-auto">
-                        <div class="reviews-right__img">
-                            <img alt="Иван Ольховский" src="<?php bloginfo('template_url'); ?>/assets/img/investor-slide.png">
-                            <div class="reviews-right__name bebas-bold">Иван Ольховский</div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                $posts = get_posts(array(
+                    'numberposts' => -1,
+                    'post_type'   => 'review',
+                ));
+
+                foreach ($posts as $post) {
+                    setup_postdata($post);
+                    get_template_part('parts/block-review');
+                }
+
+                wp_reset_postdata();
+                ?>
             </div>
         </div>
         <div class="section-botrow border-top-default flex">

@@ -263,3 +263,256 @@ function add_cors_http_header(){
 }
 add_action('init','add_cors_http_header');
 
+add_action( 'init', 'register_post_types' );
+function register_post_types()
+{
+    register_post_type('hotel', [
+        'label' => null,
+        'labels' => [
+            'name' => 'Hotel', // основное название для типа записи
+            'singular_name' => 'Hotels', // название для одной записи этого типа
+            'add_new' => 'Add hotel photo', // для добавления новой записи
+            'add_new_item' => 'Add hotel photo', // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item' => 'Edit hotel photo', // для редактирования типа записи
+            'new_item' => 'New hotel photo', // текст новой записи
+            'view_item' => 'View hotel photo', // для просмотра записи этого типа.
+            'search_items' => 'Search hotel photo', // для поиска по этим типам записи
+            'not_found' => 'Not found', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'Not found in trash', // если не было найдено в корзине
+            'parent_item_colon' => '', // для родителей (у древовидных типов)
+            'menu_name' => 'Hotels Photos', // название меню
+        ],
+        'map_meta_cap' => true,
+        'description' => '',
+        'public' => true,
+        'publicly_queryable' => true, // зависит от public
+        'exclude_from_search' => true, // зависит от public
+        'show_ui' => true, // зависит от public
+        'show_in_nav_menus' => true, // зависит от public
+        'show_in_menu' => true, // показывать ли в меню адмнки
+        'show_in_admin_bar' => true, // зависит от show_in_menu
+        'show_in_rest' => null, // добавить в REST API. C WP 4.7
+        'rest_base' => null, // $post_type. C WP 4.7
+        'menu_position' => 4,
+        'menu_icon' => null,
+	    'hierarchical' => false,
+        'supports' => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'taxonomies' => [],
+        'has_archive' => false,
+        'rewrite' => true,
+        'query_var' => true,
+    ]);
+
+    register_post_type('index_top', [
+        'label' => null,
+        'labels' => [
+            'name' => 'Index Top', // основное название для типа записи
+            'singular_name' => 'Index Top', // название для одной записи этого типа
+            'add_new' => 'Add index top', // для добавления новой записи
+            'add_new_item' => 'Add index top', // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item' => 'Edit index top', // для редактирования типа записи
+            'new_item' => 'New index top', // текст новой записи
+            'view_item' => 'View index top', // для просмотра записи этого типа.
+            'search_items' => 'Search index top', // для поиска по этим типам записи
+            'not_found' => 'Not found', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'Not found in trash', // если не было найдено в корзине
+            'parent_item_colon' => '', // для родителей (у древовидных типов)
+            'menu_name' => 'Index Top', // название меню
+        ],
+        'capability_type' => 'post',
+        'capabilities' => [
+            'create_posts' => false,
+            'delete_posts' => false,
+            'delete_published_posts' => false,
+            'delete_private_posts' => false,
+        ],
+        'map_meta_cap' => true,
+        'description' => '',
+        'public' => true,
+        'publicly_queryable' => true, // зависит от public
+        'exclude_from_search' => true, // зависит от public
+        'show_ui' => true, // зависит от public
+        'show_in_nav_menus' => true, // зависит от public
+        'show_in_menu' => true, // показывать ли в меню адмнки
+        'show_in_admin_bar' => true, // зависит от show_in_menu
+        'show_in_rest' => null, // добавить в REST API. C WP 4.7
+        'rest_base' => null, // $post_type. C WP 4.7
+        'menu_position' => 4,
+        'menu_icon' => null,
+        'hierarchical' => false,
+        'supports' => ['title', 'thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'taxonomies' => [],
+        'has_archive' => false,
+        'rewrite' => true,
+        'query_var' => true,
+    ]);
+
+    register_post_type('why_invest', [
+        'label' => null,
+        'labels' => [
+            'name' => 'Why Invest', // основное название для типа записи
+            'singular_name' => 'Why Invest', // название для одной записи этого типа
+            'add_new' => 'Add invest', // для добавления новой записи
+            'add_new_item' => 'Add invest', // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item' => 'Edit invest', // для редактирования типа записи
+            'new_item' => 'New invest', // текст новой записи
+            'view_item' => 'View invest', // для просмотра записи этого типа.
+            'search_items' => 'Search investp', // для поиска по этим типам записи
+            'not_found' => 'Not found', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'Not found in trash', // если не было найдено в корзине
+            'parent_item_colon' => '', // для родителей (у древовидных типов)
+            'menu_name' => 'Index - Why Invest', // название меню
+        ],
+        'capability_type' => 'post',
+        'capabilities' => [
+            'create_posts' => false,
+            'delete_posts' => false,
+            'delete_published_posts' => false,
+            'delete_private_posts' => false,
+        ],
+        'map_meta_cap' => true,
+        'description' => '',
+        'public' => true,
+        'publicly_queryable' => true, // зависит от public
+        'exclude_from_search' => true, // зависит от public
+        'show_ui' => true, // зависит от public
+        'show_in_nav_menus' => true, // зависит от public
+        'show_in_menu' => true, // показывать ли в меню адмнки
+        'show_in_admin_bar' => true, // зависит от show_in_menu
+        'show_in_rest' => null, // добавить в REST API. C WP 4.7
+        'rest_base' => null, // $post_type. C WP 4.7
+        'menu_position' => 4,
+        'menu_icon' => null,
+        'hierarchical' => false,
+        'supports' => ['title', 'thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'taxonomies' => [],
+        'has_archive' => false,
+        'rewrite' => true,
+        'query_var' => true,
+    ]);
+
+    register_post_type('inspirer', [
+        'label' => null,
+        'labels' => [
+            'name' => 'Inspirer', // основное название для типа записи
+            'singular_name' => 'Inspirer', // название для одной записи этого типа
+            'add_new' => 'Add inspirer', // для добавления новой записи
+            'add_new_item' => 'Add inspirer', // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item' => 'Edit inspirer', // для редактирования типа записи
+            'new_item' => 'New inspirer', // текст новой записи
+            'view_item' => 'View inspirer', // для просмотра записи этого типа.
+            'search_items' => 'Search inspirer', // для поиска по этим типам записи
+            'not_found' => 'Not found', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'Not found in trash', // если не было найдено в корзине
+            'parent_item_colon' => '', // для родителей (у древовидных типов)
+            'menu_name' => 'Index - Inspirer', // название меню
+        ],
+        'capability_type' => 'post',
+        'capabilities' => [
+            'create_posts' => false,
+            'delete_posts' => false,
+            'delete_published_posts' => false,
+            'delete_private_posts' => false,
+        ],
+        'map_meta_cap' => true,
+        'description' => '',
+        'public' => true,
+        'publicly_queryable' => true, // зависит от public
+        'exclude_from_search' => true, // зависит от public
+        'show_ui' => true, // зависит от public
+        'show_in_nav_menus' => true, // зависит от public
+        'show_in_menu' => true, // показывать ли в меню адмнки
+        'show_in_admin_bar' => true, // зависит от show_in_menu
+        'show_in_rest' => null, // добавить в REST API. C WP 4.7
+        'rest_base' => null, // $post_type. C WP 4.7
+        'menu_position' => 4,
+        'menu_icon' => null,
+        'hierarchical' => false,
+        'supports' => ['title', 'thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'taxonomies' => [],
+        'has_archive' => false,
+        'rewrite' => true,
+        'query_var' => true,
+    ]);
+
+    register_post_type('work', [
+        'label' => null,
+        'labels' => [
+            'name' => 'Work', // основное название для типа записи
+            'singular_name' => 'Work', // название для одной записи этого типа
+            'add_new' => 'Add work', // для добавления новой записи
+            'add_new_item' => 'Add work', // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item' => 'Edit work', // для редактирования типа записи
+            'new_item' => 'New work', // текст новой записи
+            'view_item' => 'View work', // для просмотра записи этого типа.
+            'search_items' => 'Search work', // для поиска по этим типам записи
+            'not_found' => 'Not found', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'Not found in trash', // если не было найдено в корзине
+            'parent_item_colon' => '', // для родителей (у древовидных типов)
+            'menu_name' => 'Index - How', // название меню
+        ],
+        'capability_type' => 'post',
+        'capabilities' => [
+            'create_posts' => false,
+            'delete_posts' => false,
+            'delete_published_posts' => false,
+            'delete_private_posts' => false,
+        ],
+        'map_meta_cap' => true,
+        'description' => '',
+        'public' => true,
+        'publicly_queryable' => true, // зависит от public
+        'exclude_from_search' => true, // зависит от public
+        'show_ui' => true, // зависит от public
+        'show_in_nav_menus' => true, // зависит от public
+        'show_in_menu' => true, // показывать ли в меню адмнки
+        'show_in_admin_bar' => true, // зависит от show_in_menu
+        'show_in_rest' => null, // добавить в REST API. C WP 4.7
+        'rest_base' => null, // $post_type. C WP 4.7
+        'menu_position' => 4,
+        'menu_icon' => null,
+        'hierarchical' => false,
+        'supports' => ['title', 'thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'taxonomies' => [],
+        'has_archive' => false,
+        'rewrite' => true,
+        'query_var' => true,
+    ]);
+
+    register_post_type('review', [
+        'label' => null,
+        'labels' => [
+            'name' => 'Reviews', // основное название для типа записи
+            'singular_name' => 'Review', // название для одной записи этого типа
+            'add_new' => 'Add review', // для добавления новой записи
+            'add_new_item' => 'Add review', // заголовка у вновь создаваемой записи в админ-панели.
+            'edit_item' => 'Edit review', // для редактирования типа записи
+            'new_item' => 'New review', // текст новой записи
+            'view_item' => 'View review', // для просмотра записи этого типа.
+            'search_items' => 'Search review', // для поиска по этим типам записи
+            'not_found' => 'Not found', // если в результате поиска ничего не было найдено
+            'not_found_in_trash' => 'Not found in trash', // если не было найдено в корзине
+            'parent_item_colon' => '', // для родителей (у древовидных типов)
+            'menu_name' => 'Index - Reviews', // название меню
+        ],
+        'map_meta_cap' => true,
+        'description' => '',
+        'public' => true,
+        'publicly_queryable' => true, // зависит от public
+        'exclude_from_search' => true, // зависит от public
+        'show_ui' => true, // зависит от public
+        'show_in_nav_menus' => true, // зависит от public
+        'show_in_menu' => true, // показывать ли в меню адмнки
+        'show_in_admin_bar' => true, // зависит от show_in_menu
+        'show_in_rest' => null, // добавить в REST API. C WP 4.7
+        'rest_base' => null, // $post_type. C WP 4.7
+        'menu_position' => 4,
+        'menu_icon' => null,
+        'hierarchical' => false,
+        'supports' => ['title', 'thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'taxonomies' => [],
+        'has_archive' => false,
+        'rewrite' => true,
+        'query_var' => true,
+    ]);
+}
