@@ -1,50 +1,62 @@
 <?= get_header(); ?>
 
         <div class="container">
-            <div class="invest-title">
-                <h1>Про компанию</h1>
-                <div class="invest-description">
-                    Мы международная сеть отелей, созданная группой компаний «UneedHostels»
-                </div>
-            </div>
-            <div class="invest-cols flex">
-                <div class="invest-col">
-                    <div class="invest-col__title bebas-bold">
-                        Надежность
-                    </div>
-                    <div class="invest-col__description">
-                        Часть капитала, размещенная в коммерческой недвижимости, позволяет сохранять его в ситуациях,
-                        когда другие классы активов дешевеют.
-                    </div>
-                </div>
-                <div class="invest-col">
-                    <div class="invest-col__title bebas-bold">
-                        Доступность
-                    </div>
-                    <div class="invest-col__description">
-                        Облигаций — недвижимость приносит регулярный прогнозируемый доход, и акций — недвижимость дает
-                        прибыль при росте ее стоимости.
-                    </div>
-                </div>
-                <div class="invest-col">
-                    <div class="invest-col__title bebas-bold">
-                        Честность
-                    </div>
-                    <div class="invest-col__description">
-                        Инвестиции в качественную коммерческую недвижимость предоставляют значительный уровень защиты
-                        инвестированного капитала
-                    </div>
-                </div>
-                <div class="invest-col">
-                    <div class="invest-col__title bebas-bold">
-                        Современность
-                    </div>
-                    <div class="invest-col__description">
-                        Регулярная индексация арендных ставок на инфляцию - обычная деловая практика в сегменте
-                        коммерческой недвижимости.
-                    </div>
-                </div>
-            </div>
+            <?php
+            $posts = get_posts(array(
+                'post_type' => 'company',
+            ));
+
+            foreach ($posts as $post) {
+                setup_postdata($post);
+
+                ?>
+
+	            <div class="invest-title">
+		            <h1><?= the_field('title') ?></h1>
+		            <div class="invest-description">
+                        <?= the_field('subtitle') ?>
+		            </div>
+	            </div>
+	            <div class="invest-cols flex">
+		            <div class="invest-col">
+			            <div class="invest-col__title bebas-bold">
+                            <?= the_field('first_block_title') ?>
+			            </div>
+			            <div class="invest-col__description">
+                            <?= the_field('first_block_text') ?>
+			            </div>
+		            </div>
+		            <div class="invest-col">
+			            <div class="invest-col__title bebas-bold">
+                            <?= the_field('second_block_title') ?>
+			            </div>
+			            <div class="invest-col__description">
+                            <?= the_field('second_block_text') ?>
+			            </div>
+		            </div>
+		            <div class="invest-col">
+			            <div class="invest-col__title bebas-bold">
+                            <?= the_field('third_block_title') ?>
+			            </div>
+			            <div class="invest-col__description">
+                            <?= the_field('third_block_text') ?>
+			            </div>
+		            </div>
+		            <div class="invest-col">
+			            <div class="invest-col__title bebas-bold">
+                            <?= the_field('fourth_block_title') ?>
+			            </div>
+			            <div class="invest-col__description">
+                            <?= the_field('fourth_block_text') ?>
+			            </div>
+		            </div>
+	            </div>
+
+                <?php
+            }
+
+            wp_reset_postdata();
+            ?>
         </div>
     </section>
     <!-- INVEST SECTION END -->

@@ -4,35 +4,55 @@
             <div class="top-bg">
                 <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/contacts-map.png">
             </div>
-            <div class="top-title">
-                <h1>
-                    Наши контакты
-                </h1>
-                <span>
-                        Если у вас есть жалобы или предложения, свяжитесь с нами и ваши пожелания будут учтены
+            <?php
+            $posts = get_posts(array(
+                'post_type' => 'contacts',
+            ));
+
+            foreach ($posts as $post) {
+                setup_postdata($post);
+
+                ?>
+
+	            <div class="top-title">
+		            <h1><?= the_field('title') ?></h1>
+		            <span>
+			            <?= the_field('subtitle') ?>
                     </span>
-            </div>
-            <div class="top-contacts flex">
-                <div class="phone">
-                    <span>Номер для консультации</span>
-                    <a href="tel:380939412123" class="bebas-bold">380939412123</a>
-                </div>
-                <div class="email">
-                    <span>Email</span>
-                    <a href="mailto:Uneed@partners.com" class="bebas-bold">Uneed@partners.com</a>
-                </div>
-            </div>
-            <ul class="top-social">
-                <li>
-                    <a href="#" class="link-default">Instagram</a>
-                </li>
-                <li>
-                    <a href="#" class="link-default">Linkedin</a>
-                </li>
-                <li>
-                    <a href="#" class="link-default">Facebook</a>
-                </li>
-            </ul>
+	            </div>
+	            <div class="top-contacts flex">
+		            <div class="phone">
+			            <span>Номер для консультации</span>
+			            <a href="tel:<?= the_field('phone') ?>" class="bebas-bold"><?= the_field('phone') ?></a>
+		            </div>
+		            <div class="email">
+			            <span>Email</span>
+			            <a href="mailto:<?= the_field('email') ?>" class="bebas-bold"><?= the_field('email') ?></a>
+		            </div>
+	            </div>
+	            <ul class="top-social">
+		            <?php if (get_field('instagram')):  ?>
+		            <li>
+			            <a href="<?= the_field('instagram') ?>" class="link-default">Instagram</a>
+		            </li>
+	                <?php endif; ?>
+                    <?php if (get_field('linkedin')):  ?>
+		            <li>
+			            <a href="<?= the_field('linkedin') ?>" class="link-default">Linkedin</a>
+		            </li>
+                    <?php endif; ?>
+                    <?php if (get_field('facebook')):  ?>
+		            <li>
+			            <a href="<?= the_field('facebook') ?>" class="link-default">Facebook</a>
+		            </li>
+                    <?php endif; ?>
+	            </ul>
+
+                <?php
+            }
+
+            wp_reset_postdata();
+            ?>
         </div>
     </section>
     <!-- FORM SECTION -->

@@ -18,7 +18,9 @@
 		<header>
 			<div class="container">
 				<div class="logo">
-					<img alt="UNEED PARTNERS GROUP" src="<?php bloginfo('template_url'); ?>/assets/img/logo.svg">
+					<?php if (!is_home()): ?><a href="<?= get_bloginfo("url"); ?>"><?php endif; ?>
+						<img alt="UNEED PARTNERS GROUP" src="<?php bloginfo('template_url'); ?>/assets/img/logo.svg">
+                    <?php if (!is_home()): ?></a><?php endif; ?>
 				</div>
 				<div class="nav-menu">
 					<ul>
