@@ -56,111 +56,122 @@
 
             wp_reset_postdata();
             ?>
-
         </div>
     </section>
     <!-- TOP SECTION END -->
     <!-- ABOUT SECTION -->
     <section class="about-section" data-section-name="about-section">
-        <div class="section-title border-bot-default">
-            <div class="container">
-                <h2 class="bebas-bold">Про нас</h2>
-            </div>
-        </div>
-        <div class="container">
-            <div id="about-carousel" class="owl-carousel">
-                <div class="about-carousel__item flex" data-dot="<button>2019</button>">
-                    <div class="about-item__img first-map">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
-                    </div>
-                </div>
-                <div class="about-carousel__item flex" data-dot="<button>2020</button>">
-                    <div class="about-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
-                        <img class="map-sm" alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map-1.png">
-                        <div class="countries">
-                            <div class="country ukraine-1"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-carousel__item flex" data-dot="<button>2021</button>">
-                    <div class="about-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
-                        <img class="map-sm" alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map-2.png">
-                        <div class="countries">
-                            <div class="country ukraine-1 c-static"></div>
-                            <div class="country ukraine-2"></div>
-                            <div class="country ukraine-3"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-carousel__item flex" data-dot="<button>2022</button>">
-                    <div class="about-item__img">
-                        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
-                        <img class="map-sm" alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map-3.png">
-                        <div class="countries">
-                            <div class="country ukraine-1 c-static"></div>
-                            <div class="country ukraine-2 c-static"></div>
-                            <div class="country ukraine-3 c-static"></div>
-                            <div class="country europe-1"></div>
-                            <div class="country europe-2"></div>
-                            <div class="country europe-3"></div>
-                            <div class="country europe-4"></div>
-                            <div class="country europe-5"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="about-item__description">
-                <div class="about-item__text">
-                    Мы занимаемся инвестированием в Киевские отели и управлением ими.
-                    Мы тщательно анализируем объект перед тем, как вложить в него деньги и предложить вам инвестирование
-                    в него.
-                    Мы проверяем информацию о доходах и расходах хостела, степень его востребованности, качество
-                    оказываемых услуг.
-                </div>
-                <div class="about-item__cols flex">
-                    <div class="about-item__col">
-                        <span class="bebas-bold">6</span>
-                        Хостелов в Украине
-                    </div>
-                    <div class="about-item__col">
-                        <span class="bebas-bold">12</span>
-                        Хостелов в Европе
-                    </div>
-                    <div class="col-divider"></div>
-                    <div class="about-item__col">
-                        <span class="bebas-bold">11 178</span>
-                        Пользоваталей на платформе
-                    </div>
-                    <div class="about-item__col">
-                        <span class="bebas-bold">100+</span>
-                        Сотрудников в штате
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section-botrow border-top-default flex">
-            <div class="container">
-                <div class="owl-custom-nav flex">
-                    <div class="about-prev flex"><img alt="prev" src="<?php bloginfo('template_url'); ?>/assets/img/slider-arrow.svg"></div>
-                    <div class="about-next flex">
-                        <div>
-                            <img alt="next" src="<?php bloginfo('template_url'); ?>/assets/img/slider-arrow.svg">
-                            <div class="btn-corner corner-1"></div>
-                            <div class="btn-corner corner-2"></div>
-                            <div class="btn-corner corner-3"></div>
-                            <div class="btn-corner corner-4"></div>
-                        </div>
-                    </div>
-                </div>
-                <a href="<?= get_option("site_url"); ?>/#" target="_blank" class="link-arrow arrow-dark flex">
-                    <span>Подробнее о компании</span>
-                    <span>О компании</span>
-                    <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/link-arrow.svg">
-                </a>
-            </div>
-        </div>
+        <?php
+        $posts = get_posts(array(
+            'post_type' => 'about',
+        ));
+
+        foreach ($posts as $post) {
+            setup_postdata($post);
+
+            ?>
+
+	        <div class="section-title border-bot-default">
+		        <div class="container">
+			        <h2 class="bebas-bold"><?= the_field('title') ?></h2>
+		        </div>
+	        </div>
+	        <div class="container">
+		        <div id="about-carousel" class="owl-carousel">
+			        <div class="about-carousel__item flex" data-dot="<button>2019</button>">
+				        <div class="about-item__img first-map">
+					        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
+				        </div>
+			        </div>
+			        <div class="about-carousel__item flex" data-dot="<button>2020</button>">
+				        <div class="about-item__img">
+					        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
+					        <img class="map-sm" alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map-1.png">
+					        <div class="countries">
+						        <div class="country ukraine-1"></div>
+					        </div>
+				        </div>
+			        </div>
+			        <div class="about-carousel__item flex" data-dot="<button>2021</button>">
+				        <div class="about-item__img">
+					        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
+					        <img class="map-sm" alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map-2.png">
+					        <div class="countries">
+						        <div class="country ukraine-1 c-static"></div>
+						        <div class="country ukraine-2"></div>
+						        <div class="country ukraine-3"></div>
+					        </div>
+				        </div>
+			        </div>
+			        <div class="about-carousel__item flex" data-dot="<button>2022</button>">
+				        <div class="about-item__img">
+					        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
+					        <img class="map-sm" alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map-3.png">
+					        <div class="countries">
+						        <div class="country ukraine-1 c-static"></div>
+						        <div class="country ukraine-2 c-static"></div>
+						        <div class="country ukraine-3 c-static"></div>
+						        <div class="country europe-1"></div>
+						        <div class="country europe-2"></div>
+						        <div class="country europe-3"></div>
+						        <div class="country europe-4"></div>
+						        <div class="country europe-5"></div>
+					        </div>
+				        </div>
+			        </div>
+		        </div>
+		        <div class="about-item__description">
+			        <div class="about-item__text">
+                        <?= the_field('text') ?>
+			        </div>
+			        <div class="about-item__cols flex">
+				        <div class="about-item__col">
+					        <span class="bebas-bold"><?= the_field('first_block_number') ?></span>
+                            <?= the_field('first_block_text') ?>
+				        </div>
+				        <div class="about-item__col">
+					        <span class="bebas-bold"><?= the_field('second_block_number') ?></span>
+                            <?= the_field('second_block_text') ?>
+				        </div>
+				        <div class="col-divider"></div>
+				        <div class="about-item__col">
+					        <span class="bebas-bold"><?= the_field('third_block_number') ?></span>
+                            <?= the_field('third_block_text') ?>
+				        </div>
+				        <div class="about-item__col">
+					        <span class="bebas-bold"><?= the_field('fourth_block_number') ?></span>
+                            <?= the_field('fourth_block_text') ?>
+				        </div>
+			        </div>
+		        </div>
+	        </div>
+	        <div class="section-botrow border-top-default flex">
+		        <div class="container">
+			        <div class="owl-custom-nav flex">
+				        <div class="about-prev flex"><img alt="prev" src="<?php bloginfo('template_url'); ?>/assets/img/slider-arrow.svg"></div>
+				        <div class="about-next flex">
+					        <div>
+						        <img alt="next" src="<?php bloginfo('template_url'); ?>/assets/img/slider-arrow.svg">
+						        <div class="btn-corner corner-1"></div>
+						        <div class="btn-corner corner-2"></div>
+						        <div class="btn-corner corner-3"></div>
+						        <div class="btn-corner corner-4"></div>
+					        </div>
+				        </div>
+			        </div>
+			        <a href="<?= the_field('about_link') ?>" target="_blank" class="link-arrow arrow-dark flex">
+				        <span><?= the_field('about_text') ?></span>
+				        <span>О компании</span>
+				        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/link-arrow.svg">
+			        </a>
+		        </div>
+	        </div>
+
+            <?php
+        }
+
+        wp_reset_postdata();
+        ?>
     </section>
     <!-- ABOUT SECTION END -->
     <!-- HOSTELS SECTION -->
