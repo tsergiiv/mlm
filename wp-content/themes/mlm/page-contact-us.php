@@ -70,17 +70,18 @@
                 <div class="contact-form__title">
                     Чтобы связаться с нами, пожалуйста заполните форму ниже
                 </div>
-                <form id="contact-form" enctype="multipart/form-data" method="post">
-                    <div class="form-group">
+
+	            <input type="text" name="action" value="<?= admin_url('admin-ajax.php?action=send_mail') ?>" hidden>
+	            <form id="contact-form" enctype="multipart/form-data" method="post">
+	                <div class="form-group dropdown-section">
                         <label>Тема вопроса</label>
-                        <input type="text" name="action" value="add" hidden="">
-                        <div class="select-default dropdown-control pointer d-flex align-items-center">
+		                <div class="select-default dropdown-control pointer d-flex align-items-center">
                             <span class="check-hide">Что вас интересует</span>
                             <div class="dropdown d-flex">
                                 <div id="contact-dropdown">
                                     <div class="form-group">
-                                        <input class="write-to" type="radio" id="contact-theme-1" name="contact-theme-1"
-                                               placeholder="Проблема с оплатой" hidden="" required="">
+                                        <input class="write-to" type="radio" id="contact-theme-1" name="contact-topic"
+                                               placeholder="Проблема с оплатой" value="Регистрация" hidden="" required="">
                                         <label class="user-label d-flex align-items-center pointer"
                                                for="contact-theme-1">
                                                 <span class="message-author">
@@ -89,8 +90,8 @@
                                         </label>
                                     </div>
                                     <div class="form-group">
-                                        <input class="write-to" type="radio" id="contact-theme-2" name="contact-theme-2"
-                                               placeholder="Проблема с зачислением бонуса" hidden="" required="">
+                                        <input class="write-to" type="radio" id="contact-theme-2" name="contact-topic"
+                                               placeholder="Проблема с зачислением бонуса" value="Цены" hidden="" required="">
                                         <label class="user-label d-flex align-items-center pointer"
                                                for="contact-theme-2">
                                                 <span class="message-author">
@@ -99,8 +100,8 @@
                                         </label>
                                     </div>
                                     <div class="form-group">
-                                        <input class="write-to" type="radio" id="contact-theme-3" name="contact-theme-3"
-                                               placeholder="Проблема с отображением в структуре" hidden="" required="">
+                                        <input class="write-to" type="radio" id="contact-theme-3" name="contact-topic"
+                                               placeholder="Проблема с отображением в структуре" value="Инвестиция" hidden="" required="">
                                         <label class="user-label d-flex align-items-center pointer"
                                                for="contact-theme-3">
                                                 <span class="message-author">
@@ -109,8 +110,8 @@
                                         </label>
                                     </div>
                                     <div class="form-group">
-                                        <input class="write-to" type="radio" id="contact-theme-4" name="contact-theme-4"
-                                               value="" hidden="" required="">
+                                        <input class="write-to" type="radio" id="contact-theme-4" name="contact-topic"
+                                               value="Предложения" hidden="" required="">
                                         <label class="user-label other-theme d-flex align-items-center pointer"
                                                for="contact-theme-4">
                                                 <span class="message-author">
@@ -119,8 +120,8 @@
                                         </label>
                                     </div>
                                     <div class="form-group">
-                                        <input class="write-to" type="radio" id="contact-theme-5" name="contact-theme-5"
-                                               value="" hidden="" required="">
+                                        <input class="write-to" type="radio" id="contact-theme-5" name="contact-topic"
+                                               value="Жалоба" hidden="" required="">
                                         <label class="user-label other-theme d-flex align-items-center pointer"
                                                for="contact-theme-5">
                                                 <span class="message-author">
@@ -136,7 +137,7 @@
                         <label for="email">
                             Эл. почта
                         </label>
-                        <input class="input-default" type="text" id="email" name="email"
+                        <input class="input-default" type="email" id="contact-email" name="contact-email"
                                placeholder="Введите ваш электронный адрес" required="">
                     </div>
                     <div class="form-group">
@@ -146,7 +147,7 @@
                         <input class="input-default" type="text" id="contact-message" name="contact-message"
                                placeholder="Текст сообщения" required="">
                     </div>
-                    <button type="button" class="modal-open btn-default btn-blue">Отправить</button>
+                    <button type="button" id="submit-btn" class="btn-default btn-blue">Отправить</button>
                 </form>
             </div>
         </div>
@@ -176,7 +177,7 @@
                 </div>
                 <div class="modal-body m-auto p-0">
                     <div class="btn-group d-flex justify-content-between">
-                        <button type="button" class="modal-close mw-100 btn-default btn-blue lg-font ls-2">Ok</button>
+                        <button type="button" class="modal-close reload-page mw-100 btn-default btn-blue lg-font ls-2">Ok</button>
                     </div>
                 </div>
             </div>

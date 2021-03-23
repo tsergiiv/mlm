@@ -53,6 +53,11 @@ function enqueue_scripts()
 
     wp_register_script('packages', get_template_directory_uri() . '/assets/js/packages.js', array(), date("h:i:s"));
     wp_enqueue_script('packages');
+
+    if (is_page('Contact Us')) {
+        wp_register_script('validation', get_template_directory_uri() . '/assets/js/validation.js', array(), date("h:i:s"));
+        wp_enqueue_script('validation');
+    }
 }
 
 function add_type_attribute($tag, $handle, $src) {
@@ -74,12 +79,12 @@ add_shortcode ('year', 'year_shortcode');
 function send_mail()
 {
     $headers = array(
-        'From: Business Dept Adjusters <root@takasho.work>',
+        'From: Uneed Partners Landing <root@takasho.work>',
         'content-type: text/html',
     );
 
     $to = get_option('letters_email');; // place wp admin email here
-    $subject = stripslashes("Form from BDA Landing");
+    $subject = stripslashes("Uneed Partners Landing");
 
     $b = [];
     foreach ($_POST as $key => $value) {
@@ -144,42 +149,6 @@ function letters_email_setting_callback_function( $val ){
 }
 
 add_action('admin_menu', 'add_email_field_to_general_admin_page');
-
-function add_phone_field_to_general_admin_page(){
-    $option_name = 'phone_number';
-
-    // регистрируем опцию
-    register_setting( 'general', $option_name );
-
-    // добавляем поле
-    add_settings_field(
-        'phone_number',
-        'Phone Number',
-        'phone_number_setting_callback_function',
-        'general',
-        'default',
-        array(
-            'id' => 'phone_number',
-            'option_name' => 'phone_number'
-        )
-    );
-}
-
-function phone_number_setting_callback_function( $val ){
-    $id = $val['id'];
-    $option_name = $val['option_name'];
-    ?>
-	<input
-			type="text"
-			size="50"
-			name="<? echo $option_name ?>"
-			id="<? echo $id ?>"
-			value="<? echo esc_attr( get_option($option_name) ) ?>"
-	/>
-    <?
-}
-
-add_action('admin_menu', 'add_phone_field_to_general_admin_page');
 
 function add_site_url_field_to_general_admin_page(){
     $option_name = 'site_url';
@@ -296,7 +265,7 @@ function register_post_types()
         'menu_position' => 4,
         'menu_icon' => null,
 	    'hierarchical' => false,
-        'supports' => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'supports' => ['thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
         'taxonomies' => [],
         'has_archive' => false,
         'rewrite' => true,
@@ -428,7 +397,7 @@ function register_post_types()
         'menu_position' => 4,
         'menu_icon' => null,
         'hierarchical' => false,
-        'supports' => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'supports' => ['thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
         'taxonomies' => [],
         'has_archive' => false,
         'rewrite' => true,
@@ -472,7 +441,7 @@ function register_post_types()
         'menu_position' => 4,
         'menu_icon' => null,
         'hierarchical' => false,
-        'supports' => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'supports' => ['thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
         'taxonomies' => [],
         'has_archive' => false,
         'rewrite' => true,
@@ -516,7 +485,7 @@ function register_post_types()
         'menu_position' => 4,
         'menu_icon' => null,
         'hierarchical' => false,
-        'supports' => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'supports' => ['thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
         'taxonomies' => [],
         'has_archive' => false,
         'rewrite' => true,
@@ -553,7 +522,7 @@ function register_post_types()
         'menu_position' => 4,
         'menu_icon' => null,
         'hierarchical' => false,
-        'supports' => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'supports' => ['thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
         'taxonomies' => [],
         'has_archive' => false,
         'rewrite' => true,
@@ -597,7 +566,7 @@ function register_post_types()
         'menu_position' => 4,
         'menu_icon' => null,
         'hierarchical' => false,
-        'supports' => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'supports' => ['thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
         'taxonomies' => [],
         'has_archive' => false,
         'rewrite' => true,
@@ -641,7 +610,7 @@ function register_post_types()
         'menu_position' => 4,
         'menu_icon' => null,
         'hierarchical' => false,
-        'supports' => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+        'supports' => ['thumbnail'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
         'taxonomies' => [],
         'has_archive' => false,
         'rewrite' => true,

@@ -7,7 +7,23 @@
                     </div>
                     <div class="phone">
                         <span>Номер для консультации</span>
-                        <a href="tel:380939412123" class="bebas-bold">380939412123</a>
+                        <?php
+                        $posts = get_posts(array(
+                            'post_type'   => 'contacts',
+                        ));
+
+                        foreach ($posts as $post) {
+                            setup_postdata($post);
+
+                            ?>
+
+		                    <a href="tel:<?= the_field('phone') ?>" class="bebas-bold"><?= the_field('phone') ?></a>
+
+                            <?php
+                        }
+
+                        wp_reset_postdata();
+                        ?>
                     </div>
                 </div>
                 <div class="right-col w-100 flex">

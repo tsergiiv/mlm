@@ -69,105 +69,7 @@
         foreach ($posts as $post) {
             setup_postdata($post);
 
-            ?>
-
-	        <div class="section-title border-bot-default">
-		        <div class="container">
-			        <h2 class="bebas-bold"><?= the_field('title') ?></h2>
-		        </div>
-	        </div>
-	        <div class="container">
-		        <div id="about-carousel" class="owl-carousel">
-			        <div class="about-carousel__item flex" data-dot="<button>2019</button>">
-				        <div class="about-item__img first-map">
-					        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
-				        </div>
-			        </div>
-			        <div class="about-carousel__item flex" data-dot="<button>2020</button>">
-				        <div class="about-item__img">
-					        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
-					        <img class="map-sm" alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map-1.png">
-					        <div class="countries">
-						        <div class="country ukraine-1"></div>
-					        </div>
-				        </div>
-			        </div>
-			        <div class="about-carousel__item flex" data-dot="<button>2021</button>">
-				        <div class="about-item__img">
-					        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
-					        <img class="map-sm" alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map-2.png">
-					        <div class="countries">
-						        <div class="country ukraine-1 c-static"></div>
-						        <div class="country ukraine-2"></div>
-						        <div class="country ukraine-3"></div>
-					        </div>
-				        </div>
-			        </div>
-			        <div class="about-carousel__item flex" data-dot="<button>2022</button>">
-				        <div class="about-item__img">
-					        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map.png">
-					        <img class="map-sm" alt="" src="<?php bloginfo('template_url'); ?>/assets/img/map-3.png">
-					        <div class="countries">
-						        <div class="country ukraine-1 c-static"></div>
-						        <div class="country ukraine-2 c-static"></div>
-						        <div class="country ukraine-3 c-static"></div>
-						        <div class="country europe-1"></div>
-						        <div class="country europe-2"></div>
-						        <div class="country europe-3"></div>
-						        <div class="country europe-4"></div>
-						        <div class="country europe-5"></div>
-					        </div>
-				        </div>
-			        </div>
-		        </div>
-		        <div class="about-item__description">
-			        <div class="about-item__text">
-                        <?= the_field('text') ?>
-			        </div>
-			        <div class="about-item__cols flex">
-				        <div class="about-item__col">
-					        <span class="bebas-bold"><?= the_field('first_block_number') ?></span>
-                            <?= the_field('first_block_text') ?>
-				        </div>
-				        <div class="about-item__col">
-					        <span class="bebas-bold"><?= the_field('second_block_number') ?></span>
-                            <?= the_field('second_block_text') ?>
-				        </div>
-				        <div class="col-divider"></div>
-				        <div class="about-item__col">
-					        <span class="bebas-bold"><?= the_field('third_block_number') ?></span>
-                            <?= the_field('third_block_text') ?>
-				        </div>
-				        <div class="about-item__col">
-					        <span class="bebas-bold"><?= the_field('fourth_block_number') ?></span>
-                            <?= the_field('fourth_block_text') ?>
-				        </div>
-			        </div>
-		        </div>
-	        </div>
-	        <div class="section-botrow border-top-default flex">
-		        <div class="container">
-			        <div class="owl-custom-nav flex">
-				        <div class="about-prev flex"><img alt="prev" src="<?php bloginfo('template_url'); ?>/assets/img/slider-arrow.svg"></div>
-				        <div class="about-next flex">
-					        <div>
-						        <img alt="next" src="<?php bloginfo('template_url'); ?>/assets/img/slider-arrow.svg">
-						        <div class="btn-corner corner-1"></div>
-						        <div class="btn-corner corner-2"></div>
-						        <div class="btn-corner corner-3"></div>
-						        <div class="btn-corner corner-4"></div>
-					        </div>
-				        </div>
-			        </div>
-			        <a href="<?= the_field('about_link') ?>" target="_blank" class="link-arrow arrow-dark flex">
-				        <span><?= the_field('about_text') ?></span>
-				        <span>О компании</span>
-				        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/link-arrow.svg">
-			        </a>
-		        </div>
-	        </div>
-
-            <?php
+            get_template_part('parts/block-about');
         }
 
         wp_reset_postdata();
@@ -193,18 +95,7 @@
                 foreach ($posts as $post) {
                     setup_postdata($post);
 
-                    ?>
-
-	                <div class="hostels-carousel__item flex">
-		                <div class="hostels-item__img">
-			                <img alt="" src="<?= the_field('image') ?>">
-		                </div>
-		                <div class="hostels-item__title bebas-normal">
-			                <?= the_field('caption') ?>
-		                </div>
-	                </div>
-
-                    <?php
+                    get_template_part('parts/block-hotels');
                 }
 
                 wp_reset_postdata();
@@ -378,82 +269,13 @@
     <section class="leader-section" data-section-name="leader-section">
         <?php
         $posts = get_posts(array(
-            'numberposts' => -1,
             'post_type'   => 'inspirer',
         ));
 
         foreach ($posts as $post) {
             setup_postdata($post);
 
-            ?>
-
-	        <div class="section-title border-bot-default">
-		        <div class="container">
-			        <h2 class="bebas-bold"><?= the_field('title') ?></h2>
-		        </div>
-	        </div>
-	        <div class="container">
-		        <div class="leader-section__left">
-			        <div class="leader-left__img">
-				        <img alt="Артак Сантосян" src="<?php bloginfo('template_url'); ?>/assets/img/leader.jpg">
-				        <div class="leader-left__name bebas-bold">
-					        Артак Сантосян
-				        </div>
-			        </div>
-		        </div>
-		        <div class="leader-section__right ml-auto">
-			        <div class="leader-right__title flex">
-				        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/quotes.png">
-				        <div class="bebas-normal">
-                            <?= the_field('quote_title') ?>
-				        </div>
-			        </div>
-			        <div class="leader-right__description">
-                        <?= the_field('quote') ?>
-			        </div>
-			        <div class="leader-right__cols flex">
-				        <a target="_blank" href="<?= the_field('linkedin') ?>" class="leader-right__col flex">
-					        <img alt="Linkedin" src="<?php bloginfo('template_url'); ?>/assets/img/linkedin.png">
-					        <div class="link-arrow flex w-100">
-						        <span>Linkedin</span>
-						        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-						             xmlns="http://www.w3.org/2000/svg">
-							        <circle cx="20" cy="20" r="20" fill="#fff"/>
-							        <path d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-							              fill="#353F4B"/>
-						        </svg>
-					        </div>
-				        </a>
-				        <a target="_blank" href="<?= the_field('facebook') ?>" class="leader-right__col flex">
-					        <img alt="Facebook" src="<?php bloginfo('template_url'); ?>/assets/img/facebook.png">
-					        <div class="link-arrow flex w-100">
-						        <span>Facebook</span>
-						        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-						             xmlns="http://www.w3.org/2000/svg">
-							        <circle cx="20" cy="20" r="20" fill="#fff"/>
-							        <path d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-							              fill="#353F4B"/>
-						        </svg>
-					        </div>
-				        </a>
-			        </div>
-		        </div>
-	        </div>
-	        <div class="section-botrow border-top-default border-bot-default flex">
-		        <div class="container">
-			        <div class="video-btn video-btn__blue">
-				        <div class="video-btn__icon"></div>
-				        <span><?= the_field('video_text') ?></span>
-			        </div>
-			        <a href="<?= the_field('about_link') ?>" target="_blank" class="link-arrow flex">
-				        <span><?= the_field('about_text') ?></span>
-				        <span>О компании</span>
-				        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/link-arrow.svg">
-			        </a>
-		        </div>
-	        </div>
-
-            <?php
+            get_template_part('parts/block-inspirer');
         }
 
         wp_reset_postdata();
@@ -470,39 +292,7 @@
         foreach ($posts as $post) {
             setup_postdata($post);
 
-            ?>
-
-	        <div class="section-title border-bot-default">
-		        <div class="container">
-			        <h2 class="bebas-bold"><?= the_field('title') ?></h2>
-			        <div class="video-section__lenght flex ml-auto">
-                        <?= the_field('video_duration') ?>
-			        </div>
-		        </div>
-	        </div>
-	        <div class="container">
-		        <div class="video-section__description">
-                    <?= the_field('text') ?>
-		        </div>
-		        <div class="video-section__all ml-auto">
-			        <div class="video-section__frame ml-auto">
-				        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/videocover.jpg">
-			        </div>
-			        <div class="video-btn">
-				        <div class="video-btn__icon"></div>
-			        </div>
-		        </div>
-	        </div>
-	        <div class="section-botrow border-top-default flex">
-		        <div class="container">
-			        <a href="<?= the_field('about_link') ?>" target="_blank" class="link-arrow arrow-dark flex ml-auto">
-				        <span><?= the_field('about_text') ?></span>
-				        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/link-arrow.svg">
-			        </a>
-		        </div>
-	        </div>
-
-            <?php
+            get_template_part('parts/block-video');
         }
 
         wp_reset_postdata();
@@ -521,7 +311,23 @@
                 <div class="packages-section__col">
                     <div class="phone">
                         <span>Номер для консультации</span>
-                        <a href="tel:380939412123" class="bebas-bold">380939412123</a>
+                        <?php
+                        $posts = get_posts(array(
+                            'post_type'   => 'contacts',
+                        ));
+
+                        foreach ($posts as $post) {
+                            setup_postdata($post);
+
+                            ?>
+
+		                    <a href="tel:<?= the_field('phone') ?>" class="bebas-bold"><?= the_field('phone') ?></a>
+
+                            <?php
+                        }
+
+                        wp_reset_postdata();
+                        ?>
                     </div>
                 </div>
             </div>

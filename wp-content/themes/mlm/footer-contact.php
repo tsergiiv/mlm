@@ -13,10 +13,6 @@
                     $(this).addClass('active');
                 }
             });
-            body.on('click', '.modal-open', function () {
-                $(body).addClass('overflow-h');
-                $('.modal').fadeIn(300);
-            });
             body.on('click', '.modal-close, .modal-backdrop', function () {
                 $(body).removeClass('overflow-h');
                 $('.modal').fadeOut(300);
@@ -30,6 +26,11 @@
                     $(this).parents().find('.form-other').addClass('d-none');
                 }
             });
+
+            $('.reload-page').click(function () {
+               location.reload();
+            });
+
             $(document).on('click', function (e) {
                 if (!$(e.target).is('.dropdown-control, .dropdown-control *')) {
                     $('.dropdown-control').removeClass('active');

@@ -11,7 +11,23 @@
                 <div class="packages-section__col">
                     <div class="phone">
                         <span>Номер для консультации</span>
-                        <a href="tel:380939412123" class="bebas-bold">380939412123</a>
+                        <?php
+                        $posts = get_posts(array(
+                            'post_type'   => 'contacts',
+                        ));
+
+                        foreach ($posts as $post) {
+                            setup_postdata($post);
+
+                            ?>
+
+	                        <a href="tel:<?= the_field('phone') ?>" class="bebas-bold"><?= the_field('phone') ?></a>
+
+                            <?php
+                        }
+
+                        wp_reset_postdata();
+                        ?>
                     </div>
                 </div>
             </div>
@@ -37,18 +53,7 @@
                 foreach ($posts as $post) {
                     setup_postdata($post);
 
-                    ?>
-
-		            <div class="hostels-carousel__item flex">
-			            <div class="hostels-item__img">
-				            <img alt="" src="<?= the_field('image') ?>">
-			            </div>
-			            <div class="hostels-item__title bebas-normal">
-                            <?= the_field('caption') ?>
-			            </div>
-		            </div>
-
-                    <?php
+					get_template_part('parts/block-hotels');
                 }
 
                 wp_reset_postdata();
@@ -76,73 +81,19 @@
     <!-- HOSTELS SECTION END -->
     <!-- LEADER SECTION -->
     <section class="leader-section" data-section-name="leader-section">
-        <div class="section-title border-bot-default">
-            <div class="container">
-                <h2 class="bebas-bold">Наш идейный вдохновитель</h2>
-            </div>
-        </div>
-        <div class="container">
-            <div class="leader-section__left">
-                <div class="leader-left__img">
-                    <img alt="Артак Сантосян" src="<?php bloginfo('template_url'); ?>/assets/img/leader.jpg">
-                    <div class="leader-left__name bebas-bold">
-                        Артак Сантосян
-                    </div>
-                </div>
-            </div>
-            <div class="leader-section__right ml-auto">
-                <div class="leader-right__title flex">
-                    <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/quotes.png">
-                    <div class="bebas-normal">
-                        Основатель Uneed partners
-                    </div>
-                </div>
-                <div class="leader-right__description">
-                    Станьте полноправным владельцем доли в бизнесе и участвуйте в распределении чистой прибыли с первого
-                    месяца
-                    работы отеля без необходимости участвовать в операционном управлении.
-                </div>
-                <div class="leader-right__cols flex">
-                    <a target="_blank" href="#" class="leader-right__col flex">
-                        <img alt="Linkedin" src="<?php bloginfo('template_url'); ?>/assets/img/linkedin.png">
-                        <div class="link-arrow flex w-100">
-                            <span>Linkedin</span>
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="20" r="20" fill="#fff"/>
-                                <path
-                                    d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-                                    fill="#353F4B"/>
-                            </svg>
-                        </div>
-                    </a>
-                    <a target="_blank" href="#" class="leader-right__col flex">
-                        <img alt="Facebook" src="<?php bloginfo('template_url'); ?>/assets/img/facebook.png">
-                        <div class="link-arrow flex w-100">
-                            <span>Facebook</span>
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="20" r="20" fill="#fff"/>
-                                <path
-                                    d="M14.9843 26.0062L23.946 17.0444L24.0933 23.6959L25.8702 23.7352L25.6557 14.0503L15.9707 13.8357L16.0101 15.6126L22.6615 15.76L13.6998 24.7217L14.9843 26.0062Z"
-                                    fill="#353F4B"/>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="section-botrow border-top-default border-bot-default flex">
-            <div class="container">
-                <div class="video-btn video-btn__blue">
-                    <div class="video-btn__icon"></div>
-                    <span>Смотреть видео про нас</span>
-                </div>
-                <a href="/{{ app['lang'] }}/#" target="_blank" class="link-arrow flex">
-                    <span>Подробнее о компании</span> <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/link-arrow.svg">
-                </a>
-            </div>
-        </div>
+        <?php
+        $posts = get_posts(array(
+            'post_type'   => 'inspirer',
+        ));
+
+        foreach ($posts as $post) {
+            setup_postdata($post);
+
+            get_template_part('parts/block-inspirer');
+        }
+
+        wp_reset_postdata();
+        ?>
     </section>
     <!-- LEADER SECTION END -->
     <!-- REVIEWS SECTION -->
