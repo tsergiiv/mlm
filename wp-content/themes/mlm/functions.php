@@ -25,6 +25,12 @@ function enqueue_styles()
     } else if (is_page('Contact Us')) {
         wp_register_style('contacts', get_template_directory_uri() . '/assets/css/contacts.css', array(), date("h:i:s"));
         wp_enqueue_style('contacts');
+    } else if (is_page('Contact Us')) {
+        wp_register_style('contacts', get_template_directory_uri() . '/assets/css/contacts.css', array(), date("h:i:s"));
+        wp_enqueue_style('contacts');
+    } else if (is_page_template( 'legacies.php')) {
+        wp_register_style('legacies', get_template_directory_uri() . '/assets/css/legacies.css', array(), date("h:i:s"));
+        wp_enqueue_style('legacies');
     }
 }
 

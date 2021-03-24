@@ -177,7 +177,7 @@
                 </div>
                 <div class="modal-body m-auto p-0">
                     <div class="btn-group d-flex justify-content-between">
-                        <button type="button" class="modal-close reload-page mw-100 btn-default btn-blue lg-font ls-2">Ok</button>
+                        <button type="button" class="modal-close mw-100 btn-default btn-blue lg-font ls-2">Ok</button>
                     </div>
                 </div>
             </div>

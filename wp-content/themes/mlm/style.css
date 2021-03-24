@@ -1082,7 +1082,7 @@ footer .right-col {
 }
 /* ANIMATIONS */
 @media screen and (min-width: 1366px) {
-    body * {
+    body *:not(.modal) {
         transition: .7s cubic-bezier(0, 0.9, 1, 1);
     }
     section {
@@ -1144,9 +1144,9 @@ footer .right-col {
         transform: translateY(0);
     }
     h1 {
-        line-height: 68px;
+        line-height: 82px;
         overflow: hidden;
-        height: 168px;
+        height: 180px;
         padding-top: 0;
     }
     section.active h1 {
@@ -2000,7 +2000,7 @@ footer .right-col {
     }
     h1 {
         font-size: 90px;
-        line-height: 100px;
+        line-height: 110px;
         height: 250px;
         max-width: 950px;
     }
@@ -2209,6 +2209,9 @@ footer .right-col {
     }
     .section-botrow {
         padding: 0!important;
+    }
+    .top-bg {
+        top: 0;
     }
     .hostels-section .section-botrow .container {
         height: 40px!important;

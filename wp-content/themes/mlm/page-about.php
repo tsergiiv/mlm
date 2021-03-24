@@ -214,4 +214,4 @@
     </section>
     <!-- REVIEWS SECTION END -->
 
-<?= get_footer(); ?>s
+<?= get_footer(); ?>

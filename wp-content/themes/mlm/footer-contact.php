@@ -27,7 +27,7 @@
                 }
             });
 
-            $('.reload-page').click(function () {
+            $('.modal-close').click(function () {
                location.reload();
             });
 

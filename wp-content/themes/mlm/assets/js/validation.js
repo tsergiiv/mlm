@@ -21,6 +21,9 @@ jQuery(formBtn).click(function (e) {
 	formData.append('Email', email);
 	formData.append('Message', message);
 
+	$('body').addClass('overflow-h');
+	$('.modal').fadeIn(300);
+
 	sendMail(action, formData);
 });
 
@@ -34,9 +37,6 @@ function sendMail(action, data) {
 		data: data,
 		success: function(data) {
 			console.log(data);
-			$('body').addClass('overflow-h');
-			$('.modal').fadeIn(300);
-
 			$(form).find(formElementsSelector).val('');
 		},
 		error: function (error) {

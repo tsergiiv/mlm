@@ -29,13 +29,13 @@
                 <div class="right-col w-100 flex">
                     <ul class="nav-list">
                         <li>
-                            <a href="<?= get_bloginfo("url"); ?>/#">Пакеты</a>
+                            <a href="<?= get_bloginfo("url"); ?>/packages">Пакеты</a>
                         </li>
                         <li>
-                            <a href="<?= get_bloginfo("url"); ?>/#">Про компанию</a>
+                            <a href="<?= get_bloginfo("url"); ?>/about">Про компанию</a>
                         </li>
                         <li>
-                            <a href="<?= get_bloginfo("url"); ?>/#">Контакты</a>
+                            <a href="<?= get_bloginfo("url"); ?>/contact-us">Контакты</a>
                         </li>
                         <li>
                             <a href="#">Блог</a>
@@ -63,7 +63,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?= get_bloginfo("url"); ?>/#">
+                            <a href="<?= get_bloginfo("url"); ?>/terms">
                                 Terms and Conditions
                             </a>
                         </li>
