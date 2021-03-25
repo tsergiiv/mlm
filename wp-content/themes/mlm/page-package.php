@@ -1,43 +1,56 @@
 <?= get_header(); ?>
 
-        <div class="container">
-            <div class="package-title">
-                <h1><span class="package-name">Silver</span> пакет</h1>
-                <div class="package-description">
-                    Гарантированная доходность. Возможность заработать 10% (12%, 15%, 17%) годовых. Недвижимость как
-                    надежный актив. Лучше, чем депозиты и ценные бумаги. Вы пассивно получает доход от аренды
-                </div>
-                <form method="post" action="<?= get_option('site_url') ?>/checkout">
-                    <input type="text" id="package-id" name="package-id" value="" hidden>
-                    <input type="text" name="business-id" value="<?= get_option('business_id') ?>" hidden>
-                    <input type="submit" class="btn-default btn-blue" value="Инвестировать">
-                </form>
-            </div>
-            <div class="package-info">
-                <div class="packages-col__info">
-                    <div class="packages-info__name">
-                        <span class="package-name">Silver</span>
-                    </div>
-                    <div class="packages-info__nums">
-                        <span class="bebas-normal">$<span class="package-price">1500</span></span>
-                        Цена пакета
-                    </div>
-                    <div class="packages-info__nums">
-                        <span class="bebas-normal package-profit">25%</span>
-                        Пасивный доход в год
-                    </div>
-                    <div class="packages-col__number">
-                        <span class="package-n">1</span>
-                    </div>
-                </div>
-                <div class="package-bg">
-                    <img alt="Silver" class="package-img" src="<?php bloginfo('template_url'); ?>/assets/img/silver-bg.svg">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- INVEST SECTION END -->
-    <section class="about-section" data-section-name="about-section">
+		<?php
+		$posts = get_posts(array(
+		    'numberposts' => 1,
+		    'offset'      => intval($_GET['package_num']) - 1,
+		    'order_by'    => 'date',
+		    'order'       => 'asc',
+		    'post_type'   => 'package',
+		));
+
+		foreach ($posts as $post) {
+		    setup_postdata($post);
+
+		    ?>
+
+	        <div class="container">
+	            <div class="package-title">
+		            <h1><span class="package-name">Silver</span> пакет</h1>
+		            <div class="package-description">
+						<?= the_field('description') ?>
+		            </div>
+		            <form method="post" action="<?= get_option('site_url') ?>/checkout">
+			            <input type="text" id="package-id" name="package-id" value="" hidden>
+			            <input type="text" name="business-id" value="<?= get_option('business_id') ?>" hidden>
+			            <input type="submit" class="btn-default btn-blue" value="Инвестировать">
+		            </form>
+	            </div>
+	            <div class="package-info">
+		            <div class="packages-col__info">
+			            <div class="packages-info__name">
+				            <span class="package-name">Silver</span>
+			            </div>
+			            <div class="packages-info__nums">
+				            <span class="bebas-normal">$<span class="package-price">1500</span></span>
+				            Цена пакета
+			            </div>
+			            <div class="packages-info__nums">
+				            <span class="bebas-normal package-profit">25%</span>
+				            Пасивный доход в год
+			            </div>
+			            <div class="packages-col__number">
+				            <span class="package-n">1</span>
+			            </div>
+		            </div>
+		            <div class="package-bg">
+			            <img alt="Silver" class="package-img" src="<?php bloginfo('template_url'); ?>/assets/img/silver-bg.svg">
+		            </div>
+	            </div>
+	        </div>
+	    </section>
+	    <!-- INVEST SECTION END -->
+        <section class="about-section" data-section-name="about-section">
         <div class="section-title border-bot-default">
             <div class="container">
                 <h2 class="bebas-bold">О пакете</h2>
@@ -45,33 +58,29 @@
         </div>
         <div class="container">
             <div class="package-about-bg">
-                <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/package-villa.png">
+                <img alt="" src="<?= the_field('image') ?>">
             </div>
             <div class="about-item__description">
                 <div class="about-item__text">
-                    Мы занимаемся инвестированием в Киевские отели и управлением ими.
-                    Мы тщательно анализируем объект перед тем, как вложить в него деньги и предложить вам инвестирование
-                    в него.
-                    Мы проверяем информацию о доходах и расходах хостела, степень его востребованности, качество
-                    оказываемых услуг.
+                    <?= the_field('text') ?>
                 </div>
                 <div class="about-item__cols flex">
                     <div class="about-item__col">
-                        <span class="bebas-bold">6</span>
-                        Хостелов в Украине
+                        <span class="bebas-bold"><?= the_field('first_block_number') ?></span>
+                        <?= the_field('first_block_text') ?>
                     </div>
                     <div class="about-item__col">
-                        <span class="bebas-bold">12</span>
-                        Хостелов в Европе
+                        <span class="bebas-bold"><?= the_field('second_block_number') ?></span>
+                        <?= the_field('second_block_text') ?>
                     </div>
                     <div class="col-divider"></div>
                     <div class="about-item__col">
-                        <span class="bebas-bold">11 178</span>
-                        Пользоваталей на платформе
+                        <span class="bebas-bold"><?= the_field('third_block_number') ?></span>
+                        <?= the_field('third_block_text') ?>
                     </div>
                     <div class="about-item__col">
-                        <span class="bebas-bold">100+</span>
-                        Сотрудников в штате
+                        <span class="bebas-bold"><?= the_field('fourth_block_number') ?></span>
+                        <?= the_field('fourth_block_text') ?>
                     </div>
                 </div>
             </div>
@@ -80,16 +89,21 @@
             <div class="container">
                 <div class="video-btn video-btn__blue">
                     <div class="video-btn__icon"></div>
-                    <span>Смотреть видео про нас</span>
+                    <span><?= the_field('video_text') ?></span>
                 </div>
-                <a href="<?php bloginfo('template_url'); ?>/assets/#" target="_blank" class="link-arrow arrow-dark flex">
-                    <span>Подробнее о компании</span>
+                <a href="<?= the_field('about_link') ?>" target="_blank" class="link-arrow arrow-dark flex">
+                    <span><?= the_field('about_text') ?></span>
                     <span>О компании</span>
                     <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/link-arrow.svg">
                 </a>
             </div>
         </div>
     </section>
+		<?php
+	}
+    wp_reset_postdata();
+    ?>
+
     <!-- HOSTELS SECTION -->
     <section class="hostels-section" data-section-name="hostels-section">
         <div class="section-title border-bot-default">

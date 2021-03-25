@@ -13,9 +13,11 @@
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
 
-            const n = parseInt(urlParams.get('package')) - 1;
+            const n = parseInt(urlParams.get('package_num')) - 1;
 
             let package = json[n];
+
+            console.log(package);
 
             let package_name = package['package_name'];
 
