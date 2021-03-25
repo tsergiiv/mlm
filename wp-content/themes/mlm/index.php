@@ -252,9 +252,6 @@
 				        <div class="video-btn__icon"></div>
 				        <span><?= the_field('video_button_text') ?></span>
 			        </div>
-			        <div class="down-btn flex">
-				        <img alt="" src="<?php bloginfo('template_url'); ?>/assets/img/arrow-down.svg">
-			        </div>
 		        </div>
 	        </div>
 

@@ -34,7 +34,7 @@
 							<a href="<?= get_bloginfo("url"); ?>/contact-us" class="link-default">Контакты</a>
 						</li>
 						<li>
-							<a href="<?= get_bloginfo("url"); ?>/#" class="link-default">Блог</a>
+							<a href="<?= get_bloginfo("url"); ?>/blog" class="link-default">Блог</a>
 						</li>
 					</ul>
 					<a href="<?= get_bloginfo("url"); ?>/packages" target="_blank" class="link-arrow flex">

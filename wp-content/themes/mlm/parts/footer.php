@@ -58,7 +58,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?= get_bloginfo("url"); ?>/#">
+                            <a href="<?= get_bloginfo("url"); ?>/cookies">
                                 Cookies Policy
                             </a>
                         </li>
