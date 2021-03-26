@@ -8,7 +8,7 @@ add_action('wp_footer', 'enqueue_scripts');
 
 function enqueue_styles()
 {
-    if (!is_page('Blog')) {
+    if (!is_page('Blog') and !is_category() and !is_single()) {
         wp_enqueue_style('mlm-style', get_stylesheet_uri(), array(), date("h:i:s"));
 
         wp_register_style('open-sans-font', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap', array());
@@ -36,7 +36,7 @@ function enqueue_styles()
     } else if (is_page_template( 'legacies.php')) {
         wp_register_style('legacies', get_template_directory_uri() . '/assets/css/legacies.css', array(), date("h:i:s"));
         wp_enqueue_style('legacies');
-    } else if (is_page('Blog')) {
+    } else if (is_page('Blog') || is_category() || is_single()) {
         wp_register_style('vendors', get_template_directory_uri() . '/assets/css/vendors.css', array(), date("h:i:s"));
         wp_enqueue_style( 'vendors');
 
@@ -56,7 +56,7 @@ function enqueue_scripts()
     wp_register_script('jquery-3.5.1.min', 'https://code.jquery.com/jquery-3.5.1.min.js', array());
     wp_enqueue_script('jquery-3.5.1.min');
 
-    if (!is_page('Blog')) {
+    if (!is_page('Blog') and !is_category() and !is_single()) {
         wp_register_script('preloader-main', get_template_directory_uri() . '/assets/js/preloader-main.js', array(), date("h:i:s"));
         wp_enqueue_script('preloader-main');
 
@@ -82,7 +82,7 @@ function enqueue_scripts()
     if (is_page('Contact Us')) {
         wp_register_script('validation', get_template_directory_uri() . '/assets/js/validation.js', array(), date("h:i:s"));
         wp_enqueue_script('validation');
-    } else if (is_page('Blog')) {
+    } else if (is_page('Blog') || is_category() || is_single()) {
         wp_register_script('app', get_template_directory_uri() . '/assets/js/app.js', array(), date("h:i:s"));
         wp_enqueue_script('app');
 
@@ -754,45 +754,6 @@ function register_post_types()
         'rewrite' => true,
         'query_var' => true,
     ]);
-
-    register_post_type( 'author', [
-        'label'  => null,
-        'labels' => [
-            'name'               => 'Authors', // основное название для типа записи
-            'singular_name'      => 'Author', // название для одной записи этого типа
-            'add_new'            => 'Add author', // для добавления новой записи
-            'add_new_item'       => 'Add author', // заголовка у вновь создаваемой записи в админ-панели.
-            'edit_item'          => 'Edit author', // для редактирования типа записи
-            'new_item'           => 'New author', // текст новой записи
-            'view_item'          => 'View author', // для просмотра записи этого типа.
-            'search_items'       => 'Search author', // для поиска по этим типам записи
-            'not_found'          => 'Not found', // если в результате поиска ничего не было найдено
-            'not_found_in_trash' => 'Not found in trash', // если не было найдено в корзине
-            'parent_item_colon'  => '', // для родителей (у древовидных типов)
-            'menu_name'          => 'Authors', // название меню
-        ],
-        'description'         => '',
-        'public'              => true,
-        'publicly_queryable'  => true, // зависит от public
-        'exclude_from_search' => true, // зависит от public
-        'show_ui'             => true, // зависит от public
-        'show_in_nav_menus'   => true, // зависит от public
-        'show_in_menu'        => true, // показывать ли в меню адмнки
-        'show_in_admin_bar'   => true, // зависит от show_in_menu
-        'show_in_rest'        => null, // добавить в REST API. C WP 4.7
-        'rest_base'           => null, // $post_type. C WP 4.7
-        'menu_position'       => 4,
-        'menu_icon'           => null,
-        //'capability_type'   => 'post',
-        //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-        //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
-        'hierarchical'        => false,
-        'supports'            => ['title'], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-        'taxonomies'          => [],
-        'has_archive'         => false,
-        'rewrite'             => true,
-        'query_var'           => true,
-    ] );
 }
 
 require get_template_directory() . '/functions-blog.php';

@@ -25,7 +25,7 @@
                 } else {
                     $(this).parents().find('.form-other').addClass('d-none');
                 }
-            });
+            }); 
 
             $('.modal-close').click(function () {
                location.reload();

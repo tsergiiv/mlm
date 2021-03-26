@@ -1,4 +1,4 @@
-<?php get_header(blog); ?>
+<?php get_header('blog'); ?>
 
 <?php
 $offset = 1;
@@ -45,7 +45,7 @@ $post_count = $posts_query->post_count;
 
     <div class="sub-header">
         <div class="inner">
-            <div class="sub-header-title"><p>Uneed Partners Stories</p></div>
+            <div class="sub-header-title"><p>Uneed Stories</p></div>
             <?php wp_nav_menu([
                 'menu'       => 'categories',
                 'container'  => false,
@@ -380,4 +380,4 @@ $post_count = $posts_query->post_count;
         let postCount = <?= $post_count ?>;
     </script>
 
-<?php get_footer(blog); ?>
+<?php get_footer('blog'); ?>
