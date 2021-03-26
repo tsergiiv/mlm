@@ -24,7 +24,7 @@ function generateHTML(n, package) {
                     Пасивный доход в год
                 </div>
             </div>
-            <a class="packages-info__plus" href="${ url }/package?package_num=${ n }"><img alt="" src="${ templateUrl }/assets/img/plus.svg"></a>
+            <a class="packages-info__plus" href="${ url }/package?package=${ n }"><img alt="" src="${ templateUrl }/assets/img/plus.svg"></a>
         </div>`;
     return result;
 }
